@@ -32,8 +32,7 @@ st.subheader('사과 상·중품 비율 구하기')
 df = df.astype({'경락일':'str'})
 df = df[df['경락일'].str.contains(last_month, na = False)]
 df['mass'] = df['농수축산물 거래 단량']*df['거래량']
-st.write('농수축산물 거래 단량 x 거래량')
-
+st.write('농수축산물 거래 단량 x 거래량 = mass')
 st.write("['grade']=='상품']['mass'].sum() + ['grade']=='중품']['mass'].sum() / df['mass'].sum()")
 
 # 상중품 비율!!!
@@ -56,8 +55,8 @@ output = df_output[df_output['경상북도']==last_year]['사과면적 (ha)'] * 
 st.write('작년 경북 사과 생산량 (kg)',output)
 
 st.subheader('잔존계수 산출')
-gs = pd.read_csv('gyesoo.csv', encoding='cp949')
-jv = pd.read_csv('java.csv', encoding='cp949')
+gs = pd.read_csv('gyesoo.csv')
+jv = pd.read_csv('java.csv')
 st.write('KOSIS 사과 재배면적 규모별 농가 및 면적 Data')
 
 # 재배면적에 따른 분포 시각화
